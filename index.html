@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tank Percentage Calculator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      max-width: 400px;
+      margin: auto;
+    }
+    label {
+      display: block;
+      margin-top: 15px;
+    }
+    input {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px;
+      width: 100%;
+    }
+    #result {
+      margin-top: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>Tank Percentage Calculator</h1>
+  <label for="tankSize">Tank Size (gallons)</label>
+  <input type="number" id="tankSize" />
+
+  <label for="startPercent">Current Tank Percentage (%)</label>
+  <input type="number" id="startPercent" />
+
+  <label for="gallonsDelivered">Gallons Delivered</label>
+  <input type="number" id="gallonsDelivered" />
+
+  <button onclick="calculate()">Calculate New Percentage</button>
+
+  <div id="result"></div>
+
+  <script>
+    function calculate() {
+      const tankSize = parseFloat(document.getElementById("tankSize").value);
+      const startPercent = parseFloat(document.getElementById("startPercent").value);
+      const gallonsDelivered = parseFloat(document.getElementById("gallonsDelivered").value);
+
+      if (isNaN(tankSize) || isNaN(startPercent) || isNaN(gallonsDelivered)) {
+        document.getElementById("result").innerText = "Please enter valid numbers in all fields.";
+        return;
+      }
+
+      const currentGallons = (startPercent / 100) * tankSize;
+      const newGallons = currentGallons + gallonsDelivered;
+      const newPercent = (newGallons / tankSize) * 100;
+
+      document.getElementById("result").innerText = `New Tank Percentage: ${newPercent.toFixed(2)}%`;
+    }
+  </script>
+</body>
+</html>
