@@ -4,6 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Tank Percentage Calculator</title>
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#1976d2" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <link rel="apple-touch-icon" href="company_logo.png" />
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -56,6 +61,12 @@
   <div id="result"></div>
 
   <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('service-worker.js');
+      });
+    }
+
     function calculate() {
       const tankSize = parseFloat(document.getElementById("tankSize").value);
       const startPercent = parseFloat(document.getElementById("startPercent").value);
