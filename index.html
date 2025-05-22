@@ -10,10 +10,12 @@
       padding: 20px;
       max-width: 400px;
       margin: auto;
+      text-align: center;
     }
     label {
       display: block;
       margin-top: 15px;
+      text-align: left;
     }
     input {
       width: 100%;
@@ -29,10 +31,17 @@
       margin-top: 20px;
       font-weight: bold;
     }
+    img.logo {
+      max-width: 100%;
+      height: auto;
+      margin-bottom: 20px;
+    }
   </style>
 </head>
 <body>
+  <img src="company_logo.png" alt="Company Logo" class="logo">
   <h1>Tank Percentage Calculator</h1>
+
   <label for="tankSize">Tank Size (gallons)</label>
   <input type="number" id="tankSize" />
 
